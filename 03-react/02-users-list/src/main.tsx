@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Book from "./components/User";
+import User from "./components/User";
 
 const appDiv = document.getElementById("app");
 
@@ -246,33 +246,33 @@ interface UserProps {
     login: UsersInfo;
 }
 
-function Login(props: UserProps) {
-    return (
-        <div>
-            <p>{props.login.first_name}</p>
-			<p>{props.login.last_name}</p>
-			<p>{props.login.age}</p>
-			<p>{props.login.city}</p>
-			<p>{props.login.isAdmin}</p>
-			<p>{props.login.avatar}</p>
-			
-        </div>
-    );
-}
+
 
 function App() {
-    const discourse: UsersInfo = {
-		id:0,
-		first_name:"Ayse",
-		last_name:"Özbek",
-		age:28,
-		city:"Basel",
-		ip:"242.25.16.144",
-		isAdmin:true,
-		avatar:"../img/img_avatar2.png"
-
-    };
-	return <Login login={discourse} />;
+	
+	
+	return (
+		<main>
+		{users.filter(user => user.age < 20).map((user, index) => (
+		  <div key={user.id}>
+			<p>Kids</p>
+			<h3>{user.first_name}</h3>
+			<p>{user.last_name}</p>
+			<p>{user.age}</p>
+			<img src={user.avatar}/>
+		  </div>
+		))}
+		{users.filter(user => user.age > 20).map((user, index) => (
+		  <div key={user.id}>
+			<p>Parents</p>
+			<h3>{user.first_name}</h3>
+			<p>{user.last_name}</p>
+			<p>{user.age}</p>
+			<img src={user.avatar}/>
+		  </div>
+		))}
+		</main>
+	)
   
 }
 
