@@ -21,5 +21,14 @@ users = [
     }
 ]
 
+def groupByAge(**message):
+    return(message(users))
 
-users.loc[(users.Age < 28),  'AgeGroup'] = 'Children'
+for person in users:
+
+    if person["age"]<29:
+        print("Children", person['first_name'], person['last_name'])
+    else:
+        print("Adults", person['first_name'], person['last_name'])
+
+
