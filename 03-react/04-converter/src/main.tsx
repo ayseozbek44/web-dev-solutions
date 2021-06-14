@@ -16,12 +16,12 @@ const App = (): JSX.Element => {
 			<input
 				type="number"
 				value={c}
-				onChange={(e) => handleFahrenheit(((parseInt(e.target.value) * 9 / 5) + 32).toFixed(2))}
+				onChange={(e) => handleCelsius(((parseInt(e.target.value) * 9 / 5) + 32).toFixed(2))}
 			/>
 			<input
 				type="number"
 				value={f}
-				onChange={(e) => handleCelsius(((parseInt(e.target.value) - 32) * 5 / 9).toFixed(2))}
+				onChange={(e) => handleFahrenheit(((parseInt(e.target.value) - 32) * 5 / 9).toFixed(2))}
 			/>
 			
 		</main>
