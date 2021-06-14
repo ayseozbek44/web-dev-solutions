@@ -1,22 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-const celsiusInput = document.getElementById("celsius");
-const fahrenheitInput =
-	document.getElementById("fahrenheit");
-
-
-if (!(celsiusInput instanceof HTMLInputElement)) {
-	throw new Error("No input with id 'celsius' found");
-}
-if (!(fahrenheitInput instanceof HTMLInputElement)) {
-	throw new Error("No input with id 'fahrenheit' found");
-}
-
-const fahrenheitToCelsius = (fahrenheit: number) =>
-	((fahrenheit - 32) * 5) / 9;
-
- 
 const appDiv = document.getElementById("app");
 
 if (!(appDiv instanceof HTMLDivElement)) {
@@ -24,20 +8,20 @@ if (!(appDiv instanceof HTMLDivElement)) {
 }
 
 const App = (): JSX.Element => {
-	const [f, handleFahrenheit] = React.useState(null);
-	const [c, handleCelsius] = React.useState(null);
+	const [f, handleFahrenheit] = React.useState("");
+	const [c, handleCelsius] = React.useState("");
 
 	return (
 		<main>
 			<input
 				type="number"
-				value={f}
-				onChange={(e) => handleFahrenheit((e.target.value * 9 / 5) + 32).toFixed(2)}
+				value={c}
+				onChange={(e) => handleFahrenheit(((parseInt(e.target.value) * 9 / 5) + 32).toFixed(2))}
 			/>
 			<input
 				type="number"
-				value={c}
-				onChange={(e) => handleCelsius((e.target.value - 32) * 5 / 9).toFixed(2)}
+				value={f}
+				onChange={(e) => handleCelsius(((parseInt(e.target.value) - 32) * 5 / 9).toFixed(2))}
 			/>
 			
 		</main>
