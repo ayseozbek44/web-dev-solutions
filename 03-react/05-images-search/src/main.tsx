@@ -23,13 +23,12 @@ const themes: string[][] = [
 
 const IMG_URL = "https://pixabay.com/api/?key=22081611-d950e1e36121f30b40dcd83d6&q=yellow+flowers&image_type=photo";
 
-interface Quote {
-	content: string;
-	author: string;
+interface Img {
+	title:string;
 }
 
 const App = (): JSX.Element => {
-	const [images, setImages] = useState<string | null>(null);
+	const [images, setImages] = useState<Img | null>(null);
 	const [value, setValue] = useState<string>('');
 
     const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
@@ -39,6 +38,7 @@ const App = (): JSX.Element => {
 		const json = await response.json();
 		setImages(json);
 		console.log(json);
+	//	images.src = URL.createObjectURL(fetchImages)
 	};
 
     // const url = new URL("https://api.example.com");
@@ -61,7 +61,7 @@ const App = (): JSX.Element => {
                     </section>
                     <section>
                         <div>
-                            <img src="" alt=""></img>
+                            <img src="{images}" alt=""></img>
                         </div>
                     </section>
                 </main>
