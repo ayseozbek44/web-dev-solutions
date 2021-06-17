@@ -7,49 +7,56 @@ if (!(appDiv instanceof HTMLDivElement)) {
 	throw new Error("No div with id 'app' found");
 }
 
-interface UserForm {
-    firstname: string;
-    lastname: string;
-    age: number;
+interface UserInfo {
+	firstname: string;
+	lastname: string;
+	age: number;
 }
 
-const App = () =>{
+const [First_Name, setFirst_Name]=React.useState('');
+const [Last_Name, setLast_Name]=React.useState('');
+const [Ages, setAges]=React.useState(0);
+
+
+const handleSubmit=(e: React.ChangeEvent<HTMLButtonElement>) =>{
+	e.preventDefault();
+	setUser() =>{ ({firstname:First_Name, lastname:Last_Name, age:Ages})
+};
+
+const App = () => {
+	const [user, setUser] = React.useState<UserInfo>({
+		firstname: "",
+		lastname: "",
+		age: 0,
+	});
 
 	return (
-		<main>
-		<div>
-		<input
-				type="text"
-				placeholder="Please write Your First Name"
-				//value={}
-				
-				
-			/>
-			</div>	
-			<br/>
+		<form
+			onChange={(e) => {
+				e.preventDefault();
+				// TODO: Show form data
+			}}
+		>
 			<input
 				type="text"
-				placeholder="Please write Your Last Name"
-				//value={}
-				
-				
+				value={user.firstname}
+				// TODO update user.firstname
+				onChange={(e) => {}}
 			/>
-			<br/>
 			<input
 				type="text"
-				placeholder="Please write Your Age"
-				
-				
+				// TODO update user.lastname
+				value={user.lastname}
+				onChange={(e) => {}}
 			/>
-			<br/>
 			<input
-				type="submit"
-				value="Send"
-				
-				
+				type="number"
+				// TODO update user.age
+				value={user.age}
+				onChange={(e) => {}}
 			/>
-			
-		</main>
+			<input type="submit" value="Send my data" />
+		</form>
 	);
 };
 

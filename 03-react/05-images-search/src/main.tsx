@@ -21,30 +21,32 @@ const themes: string[][] = [
 	["#990011", "#FCF6F5"],
 ];
 
-const IMG_URL = "https://pixabay.com/api/?key=22081611-d950e1e36121f30b40dcd83d6&q=yellow+flowers&image_type=photo";
+const IMG_URL = "https://pixabay.com/api/";
 
 interface Img {
-	title:string;
+	webformatURL:string;
 }
 
 const App = (): JSX.Element => {
-	const [images, setImages] = useState<Img | null>(null);
+	const [images, setImages] = useState<Img[] | null>(null);
 	const [value, setValue] = useState<string>('');
 
     const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
 
 	const fetchImages = async (value: string) => {
-		const response = await fetch(IMG_URL+value+'');
+		const url = new URL(IMG_URL);
+		url.searchParams.append("key", "22072031-b43ed275c2fcd12c6331efa40");
+		url.searchParams.append("q", value);
+		console.log(url.toString());
+
+		const response = await fetch(url.toString());
 		const json = await response.json();
-		setImages(json);
+		setImages(json.hits);
 		console.log(json);
 	//	images.src = URL.createObjectURL(fetchImages)
 	};
 
-    // const url = new URL("https://api.example.com");
-   // url.searchParams.append("q", "Hello World");
- //   url.searchParams.append("sort", "year");
-  //  console.log(url.toString());
+   
 
 	return (
 		<main>
@@ -61,7 +63,7 @@ const App = (): JSX.Element => {
                     </section>
                     <section>
                         <div>
-                            <img src="{images}" alt=""></img>
+                            {images === null ? "" : images.map(image =><img key={image.webformatURL} src={image.webformatURL}></img>)}
                         </div>
                     </section>
                 </main>

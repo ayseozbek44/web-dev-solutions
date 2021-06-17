@@ -34,15 +34,14 @@ input{
 	appearance: none;
 	border: none;
 	padding: 1em;
-	font-size: 1em;
 	cursor: pointer;
 	border-radius: 0.3em;
 	font-style: italic;
 }
 
-h2{
+label{
     font-family: cursive;
-    font-size: 2em;
+    font-size: 1em;
 	position: relative;
 	text-align: left;
 	max-width: 30em;
