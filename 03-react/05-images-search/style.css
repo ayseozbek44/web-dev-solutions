@@ -1,0 +1,47 @@
+body {
+	font-size: 1.6em;
+	line-height: 1.5;
+	margin: 0;
+}
+
+main {
+	text-align: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	min-height: 100vh;
+}
+
+
+button{
+    color:aqua;
+    width: auto;
+    -webkit-appearance: none;
+	appearance: none;
+	border: none;
+	padding: 1em;
+	font-size: inherit;
+	cursor: pointer;
+	border-radius: 0.3em;
+}
+
+input{
+    color: dimgray;
+    width: auto;
+    -webkit-appearance: none;
+	appearance: none;
+	border: none;
+	padding: 1em;
+	font-size: inherit;
+	cursor: pointer;
+	border-radius: 0.3em;
+}
+
+h2{
+    font-family: cursive;
+    font-size: 2em;
+	position: relative;
+	text-align: left;
+	max-width: 30em;
+}

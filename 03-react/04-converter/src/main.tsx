@@ -17,6 +17,7 @@ const App = (): JSX.Element => {
 				type="number"
 				value={c}
 				onChange={(e) => handleCelsius(((parseInt(e.target.value) * 9 / 5) + 32).toFixed(2))}
+				
 			/>
 			<input
 				type="number"
